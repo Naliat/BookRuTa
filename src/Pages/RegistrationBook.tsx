@@ -1,8 +1,8 @@
 // src/components/BookForm.tsx
 import React, { useState } from 'react';
-import '../Form/BookForm.css';
+import '../Pages/RegistrationBook.css';
 
-const BookForm: React.FC = () => {
+const RegistrationBook: React.FC = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
@@ -84,4 +84,4 @@ const BookForm: React.FC = () => {
   );
 };
 
-export default BookForm;
+export default RegistrationBook;

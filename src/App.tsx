@@ -1,7 +1,8 @@
 // src/App.tsx
 import React from 'react';
 import './App.css';
-import BookForm from './components/Pages/Form/BookForm';
+import RegistrationBook from './Pages/RegistrationBook';
+
 
 const App: React.FC = () => {
   return (
@@ -10,7 +11,7 @@ const App: React.FC = () => {
      
       </header>
       <main>
-        <BookForm />
+        <RegistrationBook />
       </main>
     </div>
   );
