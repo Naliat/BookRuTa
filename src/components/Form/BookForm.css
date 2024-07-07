@@ -1,0 +1,89 @@
+/* src/Form/BookForm.css */
+
+/* Estilo geral do formulário */
+.container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    text-align: center; /* Centraliza todo o conteúdo */
+}
+
+.AppTitle {
+    text-align: center;
+}
+
+form {
+    background-color: #f0f5f9; /* Azul claro para o fundo */
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    max-width: 400px; /* Largura máxima do formulário */
+    margin: auto; /* Centraliza o formulário na tela */
+    font-family: 'Roboto', sans-serif; /* Aplica a fonte Roboto em todo o formulário */
+}
+
+/* Estilo dos campos de entrada */
+input[type="text"],
+input[type="date"],
+textarea {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin: 8px 0;
+    border: 1px solid #b0bec5; /* Azul cinza para a borda */
+    border-radius: 4px;
+    font-family: 'Roboto', sans-serif; /* Fonte Roboto */
+}
+
+/* Estilo do botão de submit */
+button[type="submit"] {
+    background-color: #2196f3; /* Azul principal para o botão */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif; /* Utiliza a fonte Roboto */
+    display: block; /* Transforma em bloco para ocupar toda a largura disponível */
+    margin: 20px auto; /* Centraliza horizontalmente e adiciona margem superior */
+}
+
+button[type="submit"]:hover {
+    background-color: #0e87e6; /* Azul mais escuro no hover */
+}
+
+/* Estilo dos labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Estilo para ajustar a cor da borda quando o foco está no campo */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #64b5f6; /* Azul mais brilhante quando em foco */
+    box-shadow: 0 0 5px rgba(100, 181, 246, 0.5);
+}
+
+/* Estilo para o título "Cadastro de Livros" */
+.title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #1565c0; /* Azul mais profundo para o título */
+    font-family: 'Roboto', sans-serif; /* Utiliza a fonte Roboto */
+    text-align: center; /* Centraliza o texto */
+}
+
+/* Estilo para tornar o formulário responsivo */
+@media screen and (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    form {
+        padding: 10px;
+        max-width: 100%; /* Formulário ocupa toda a largura disponível */
+    }
+}
