@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+// src/Pages/UpdateBook.tsx
+import React, { useState, useEffect } from 'react';
 import '../Pages/UpdateBook.css';
 
-const RegistrationBook: React.FC = () => {
+const UpdateBook: React.FC = () => {
   const [title, setTitle] = useState('');
   const [author, setAuthor] = useState('');
   const [category, setCategory] = useState('');
@@ -9,14 +10,40 @@ const RegistrationBook: React.FC = () => {
   const [country, setCountry] = useState('');
   const [description, setDescription] = useState('');
 
+  // Simulate fetching data
+  useEffect(() => {
+    // Fetch the existing book data here and update the state
+    const fetchData = async () => {
+      // Replace this with actual data fetching
+      const existingBook = {
+        title: 'Example Book Title',
+        author: 'Example Author',
+        category: 'Example Category',
+        publicationDate: '2021-01-01',
+        country: 'Example Country',
+        description: 'Example Description',
+      };
+
+      setTitle(existingBook.title);
+      setAuthor(existingBook.author);
+      setCategory(existingBook.category);
+      setPublicationDate(existingBook.publicationDate);
+      setCountry(existingBook.country);
+      setDescription(existingBook.description);
+    };
+
+    fetchData();
+  }, []);
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    alert(`Título: ${title}\nAutor: ${author}\nCategoria: ${category}\nData de Publicação: ${publicationDate}\nPaís de Publicação: ${country}\nDescrição: ${description}`);
+    // Implement the update logic here
+    alert(`Dados atualizados:\nTítulo: ${title}\nAutor: ${author}\nCategoria: ${category}\nData de Publicação: ${publicationDate}\nPaís de Publicação: ${country}\nDescrição: ${description}`);
   };
 
   return (
     <div className="container">
-      <h1 className="title">Cadastro de Livros</h1>
+      <h1 className="title">Atualização de Livro</h1>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="title">Título:</label>
@@ -77,10 +104,10 @@ const RegistrationBook: React.FC = () => {
             required
           />
         </div>
-        <button type="submit">Cadastrar Livro</button>
+        <button type="submit">Atualizar Livro</button>
       </form>
     </div>
   );
 };
 
-export default RegistrationBook;
+export default UpdateBook;
