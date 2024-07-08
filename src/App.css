@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  border: 50rm solid #ccc; /* Borda global */
 }
 
 .App-logo {
@@ -12,8 +13,6 @@
     animation: App-logo-spin infinite 20s linear;
   }
 }
-
-
 
 .App-link {
   color: #61dafb;

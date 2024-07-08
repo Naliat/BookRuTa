@@ -4,6 +4,9 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './App.css';
 import RegistrationBook from './Pages/RegistrationBook';
 import UpdateBook from './Pages/UpdateBook';
+import Login from './Pages/Login';
+import RegisterUser from './Pages/RegisterUser'; // Importe o novo componente de cadastro de usuário
+import BookList from './Pages/BookList';
 
 const App: React.FC = () => {
   return (
@@ -14,9 +17,11 @@ const App: React.FC = () => {
         </header>
         <main>
           <Routes>
-            <Route path="/register" element={<RegistrationBook />} />
-            <Route path="/update" element={<UpdateBook />} />
-            <Route path="/" element={<RegistrationBook />} />
+            <Route path="/" element={<RegisterUser />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register-book" element={<RegistrationBook />} />
+            <Route path="/update-book" element={<UpdateBook />} />
+           <Route path="/list" element={<BookList />} />
           </Routes>
         </main>
       </div>

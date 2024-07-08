@@ -1,5 +1,6 @@
+// src/components/BookForm.tsx
 import React, { useState } from 'react';
-import '../Pages/UpdateBook.css';
+import '../Pages/RegistrationBook.css';
 
 const RegistrationBook: React.FC = () => {
   const [title, setTitle] = useState('');
