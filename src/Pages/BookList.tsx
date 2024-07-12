@@ -14,7 +14,6 @@ interface Book {
 const BookList: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
 
-  // Função para adicionar um livro (simulando a adição de livros)
   const addBook = (book: Book) => {
     setBooks([...books, book]);
   };

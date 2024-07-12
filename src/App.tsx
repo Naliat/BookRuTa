@@ -5,23 +5,24 @@ import './App.css';
 import RegistrationBook from './Pages/RegistrationBook';
 import UpdateBook from './Pages/UpdateBook';
 import Login from './Pages/Login';
-import RegisterUser from './Pages/RegisterUser'; // Importe o novo componente de cadastro de usuário
+import RegisterUser from './Pages/RegisterUser';
 import BookList from './Pages/BookList';
+import Home from './Pages/Home';
+import Navbar from './components/Navbar';
 
 const App: React.FC = () => {
   return (
     <Router>
       <div className="App">
-        <header className="App-header">
-          <h1 className="AppTitle">Sistema de Gestão de Livros</h1>
-        </header>
+        <Navbar />
         <main>
           <Routes>
-            <Route path="/" element={<RegisterUser />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
-            <Route path="/register-book" element={<RegistrationBook />} />
-            <Route path="/update-book" element={<UpdateBook />} />
-           <Route path="/list" element={<BookList />} />
+            <Route path="/register" element={<RegistrationBook />} />
+            <Route path="/update" element={<UpdateBook />} />
+            <Route path="/list" element={<BookList />} />
+            <Route path="/user" element={<RegisterUser />} />
           </Routes>
         </main>
       </div>

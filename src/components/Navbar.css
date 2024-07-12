@@ -1,0 +1,110 @@
+/* src/Components/Navbar.css */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007BFF;
+    padding: 10px 20px;
+    position: relative;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5em;
+    color: #fff;
+  }
+  
+  .navbar-menu-icon {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .navbar-menu-icon .bar {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    margin: 4px 0;
+    transition: 0.3s;
+  }
+  
+  .navbar-menu-icon .bar.active {
+    background-color: #fff; /* Mudar a cor do ícone quando o menu estiver aberto */
+    transform: rotate(45deg); /* Rotacionar os ícones para criar o efeito de X */
+  }
+  
+  .navbar-dropdown-content {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #007BFF;
+    border-radius: 4px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    display: none; /* Inicialmente oculto */
+    flex-direction: column;
+    width: 200px;
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .navbar-dropdown-content.active {
+    display: flex; /* Mostrar o dropdown quando a classe active estiver presente */
+  }
+  
+  .navbar-dropdown-content li {
+    margin: 0;
+  }
+  
+  .navbar-dropdown-content a {
+    color: #fff;
+    padding: 10px 20px;
+    text-align: left;
+    width: 100%;
+    border-radius: 4px;
+    display: block;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .navbar-dropdown-content a:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+  }
+  
+  .navbar-dropdown-content a:active {
+    background-color: #004080;
+    transform: translateY(0);
+  }
+  
+  /* Responsividade para telas menores */
+  @media (max-width: 768px) {
+    .navbar-menu-icon {
+      display: flex;
+    }
+  
+    .navbar-dropdown-content {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      background-color: #007BFF;
+      border-radius: 4px;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      display: none; /* Inicialmente oculto */
+      flex-direction: column;
+      width: 100vw;
+      list-style-type: none;
+      padding: 0;
+    }
+  
+    .navbar-dropdown-content.active {
+      display: flex; /* Mostrar o dropdown quando a classe active estiver presente */
+    }
+  
+    .navbar-dropdown-content a {
+      color: #fff;
+      padding: 15px 20px;
+      text-align: center;
+      width: 100%;
+    }
+  }
+  
