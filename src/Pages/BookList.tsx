@@ -14,6 +14,7 @@ interface Book {
 const BookList: React.FC = () => {
   const [books, setBooks] = useState<Book[]>([]);
 
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const addBook = (book: Book) => {
     setBooks([...books, book]);
   };
