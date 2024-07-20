@@ -16,7 +16,7 @@ const RegistrationBook: React.FC = () => {
     setMessage(null);
 
     try {
-      const response = await axios.post('http://localhost:3001/registerBook', {
+      await axios.post('http://localhost:3001/registerBook', {
         title,
         author,
         category,
@@ -26,7 +26,6 @@ const RegistrationBook: React.FC = () => {
       });
 
       setMessage('Livro cadastrado com sucesso!');
-
 
       setTitle('');
       setAuthor('');
@@ -42,7 +41,6 @@ const RegistrationBook: React.FC = () => {
 
   return (
     <div className="container">
-
       {message && <p className="message">{message}</p>}
       <h1 className="title">Cadastro de Livros</h1>
       <form onSubmit={handleSubmit}>
@@ -87,7 +85,7 @@ const RegistrationBook: React.FC = () => {
           />
         </div>
         <div>
-          <label htmlFor="country">País de Publicação:</label>
+          <label htmlFor="country">País:</label>
           <input
             type="text"
             id="country"
@@ -102,15 +100,12 @@ const RegistrationBook: React.FC = () => {
             id="description"
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            required
           />
         </div>
-        <button type="submit">Cadastrar Livro</button>
+        <button type="submit">Cadastrar</button>
       </form>
     </div>
   );
 };
 
 export default RegistrationBook;
-
-
