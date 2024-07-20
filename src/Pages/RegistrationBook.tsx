@@ -1,6 +1,5 @@
-// src/components/BookForm.tsx
 import React, { useState } from 'react';
-import '../Pages/RegistrationBook.css';
+import axios from 'axios';
 
 const RegistrationBook: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -9,14 +8,42 @@ const RegistrationBook: React.FC = () => {
   const [publicationDate, setPublicationDate] = useState('');
   const [country, setCountry] = useState('');
   const [description, setDescription] = useState('');
+  const [message, setMessage] = useState<string | null>(null);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert(`Título: ${title}\nAutor: ${author}\nCategoria: ${category}\nData de Publicação: ${publicationDate}\nPaís de Publicação: ${country}\nDescrição: ${description}`);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    setMessage(null);
+
+    try {
+      const response = await axios.post('http://localhost:3001/registerBook', {
+        title,
+        author,
+        category,
+        publicationDate,
+        country,
+        description: description || 'Sem descrição' // Adiciona valor padrão
+      });
+
+      setMessage('Livro cadastrado com sucesso!');
+
+
+      setTitle('');
+      setAuthor('');
+      setCategory('');
+      setPublicationDate('');
+      setCountry('');
+      setDescription('');
+    } catch (err) {
+      setMessage('Erro ao cadastrar o livro. Tente novamente.');
+      console.error(err);
+    }
   };
 
   return (
     <div className="container">
+
+      {message && <p className="message">{message}</p>}
       <h1 className="title">Cadastro de Livros</h1>
       <form onSubmit={handleSubmit}>
         <div>
@@ -85,3 +112,5 @@ const RegistrationBook: React.FC = () => {
 };
 
 export default RegistrationBook;
+
+

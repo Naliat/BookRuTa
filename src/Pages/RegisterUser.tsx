@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../Pages/RegisterUser.css';
 
 const RegisterUser: React.FC = () => {
@@ -7,16 +8,24 @@ const RegisterUser: React.FC = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (password !== confirmPassword) {
       alert('As senhas não coincidem!');
       return;
     }
-    // Aqui você pode adicionar a lógica de registro de usuário
-    console.log('Usuário:', username);
-    console.log('E-mail:', email);
-    console.log('Senha:', password);
+    try {
+      const response = await axios.post('http://localhost:3001/register', {
+        username,
+        email,
+        password
+      });
+      console.log(response.data);
+      alert('Usuário registrado com sucesso!');
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao registrar o usuário');
+    }
   };
 
   return (

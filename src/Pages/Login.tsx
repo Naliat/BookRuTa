@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import '../Pages/Login.css';
 
 const Login: React.FC = () => {
@@ -6,11 +7,20 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Aqui você pode adicionar a lógica de login
-    console.log('Usuário ou E-mail:', username || email);
-    console.log('Senha:', password);
+    try {
+      const response = await axios.post('http://localhost:3001/login', {
+        username,
+        email,
+        password
+      });
+      console.log(response.data);
+      alert('Login bem-sucedido!');
+    } catch (error) {
+      console.error(error);
+      alert('Erro ao fazer login. Verifique suas credenciais.');
+    }
   };
 
   return (
@@ -24,7 +34,7 @@ const Login: React.FC = () => {
             id="username"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            required
+            required={!email}
           />
         </div>
         <div>
@@ -34,7 +44,7 @@ const Login: React.FC = () => {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            required={!username}
           />
         </div>
         <div>

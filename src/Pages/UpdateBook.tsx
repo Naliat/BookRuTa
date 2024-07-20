@@ -10,11 +10,11 @@ const UpdateBook: React.FC = () => {
   const [country, setCountry] = useState('');
   const [description, setDescription] = useState('');
 
-  // Simulate fetching data
+ 
   useEffect(() => {
-    // Fetch the existing book data here and update the state
+    
     const fetchData = async () => {
-      // Replace this with actual data fetching
+ 
       const existingBook = {
         title: 'Example Book Title',
         author: 'Example Author',
@@ -37,7 +37,7 @@ const UpdateBook: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    // Implement the update logic here
+   
     alert(`Dados atualizados:\nTítulo: ${title}\nAutor: ${author}\nCategoria: ${category}\nData de Publicação: ${publicationDate}\nPaís de Publicação: ${country}\nDescrição: ${description}`);
   };
 
